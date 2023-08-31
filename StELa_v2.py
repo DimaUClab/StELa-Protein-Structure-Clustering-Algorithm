@@ -3,12 +3,9 @@
 # Secondary sTructural Ensembles with machine LeArning
 # For Characterizing Secondary Structure in Local Protein Regions
 
-# Authored by Amanda C. Macke & Ruxandra I. Dima
-# In collaboration with Maria S. Kelly, Jamie Rowley, Jacob E. Stump & Vageesha Hearth
-# University of Cincinnati - Cincinnati, OH 
 # Last Edited: 08/31/2023
 ###################################################################################################
-# Python 3.8 & Anaconda (https://www.anaconda.com/)
+# Python 3.9 & Anaconda (https://www.anaconda.com/)
 
 # Load All the necessary Libraries used
 import os
@@ -36,20 +33,6 @@ from sklearn import metrics
 from sklearn.metrics import silhouette_score
 
 sys.setrecursionlimit(100000)
-
-# You will want to change the following to best suit your system
-# The Angle Headers can be found in the RAMA.xgv input files!
-###################################################################################################
-# The following function is used to load the Angle Files computed from GROMACS rama function and saved to .xvg files
-# To simplify the python script, the GROMACS header was removed with the following bash line in a terminal
-# sed -n '35, 490000p' rama-loop-a15-01-MonC.xvg > rama-loop-a15-01-nohead.xvg
-###################################################################################################
-# print('    ~~~ You can count the number of angles in the RAMA.xvg input and divide the number of lines by the number of angles ~~~')
-
-# Alpha helices have to have 4 helical residues in a row
-# Beta sheets have to have 2 beta residues in a row
-# There has to be 2 residues inbetween independent secondary structures
-
 ###################################################################################################
 print('\nDear User, ')
 print('Hello, from the Dima Lab at the University of Cincinnati!\n')
