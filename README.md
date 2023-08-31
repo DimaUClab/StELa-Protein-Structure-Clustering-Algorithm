@@ -115,9 +115,7 @@ etc.
 ### Input file (StELa_Input.csv): 
 This input file is used to organize and streamline input provided by the user concerning the individual protein region of interest.
 - System_Name: used to name some of the files - in our instance, the input file (indicated in line XXX)
-
-  ^ Consideration may be required as to the name of your particular input file
-
+  - Consideration may be required as to the name of your particular input file
 - Residue_IDs: a list of the labels provided in the rama.xvg file for resiude organization - an arbitrary list may be provided instead if desired
 - Total_Angles: the number of angles in your protein region (14 residues = 12 angles) - determines how StELa parses through the rama.xvg input file
   *If unsure about how many angles, a good way to check the appropriate no. is count the labels in the input rama.xvg
