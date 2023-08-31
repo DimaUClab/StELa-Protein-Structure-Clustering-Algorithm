@@ -5,7 +5,9 @@ Published by: Amanda C. Macke - Dima Group @ University of Cincinnati
 email for questions (mackeac@mail.uc.edu)
 
 Authored by: Amanda C. Macke, Jacob E. Stump, Maria S. Kelly, Jamie Rowley, Vageesha Herath, Sarah Mullen & Ruxandra I. Dima
+
 bioRxv - 
+
 ###################################################################################### 
 ## A Letter from StELa 
 ### Developed in the Dima Research Group 
