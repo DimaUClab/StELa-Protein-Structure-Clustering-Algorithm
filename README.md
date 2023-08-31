@@ -11,8 +11,10 @@ bioRxv -
 ### Developed in the Dima Research Group 
 by Amanda C. Macke, Jamie Rowley, Jacob E. Stump & Ruxandra I. Dima
 ### University of Cincinnati  
-##### VERSION 2
+#### VERSION 2 - Aug. 2023
 ######################################################################################
+
+## Dear User,
 
 This python code was delevoped on a linux system but can be ran in any python environment provided there is an interactive terminal. In linux, the code is most easily executed from a terminal with the following command: 
 
@@ -160,3 +162,8 @@ StELa will then ask for an alternative vector:
 *Please provide the alternative vector with spaces between the integers and including the [] brackets
 
 This process will loop until a representative can be found.
+
+
+## Thank you for using StELa for your secondary structure needs!
+## With Love,
+## StELa
