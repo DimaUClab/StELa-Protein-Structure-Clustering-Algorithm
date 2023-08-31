@@ -33,5 +33,7 @@ scipy == 1.7.1
 ######################################################################################
 ### General Description Algorithm Logic: 
 This algorithm is a clustering based algorithm used to characterize local regions of proteins found to be particularly flexible in MD simulation
+
+Version 1 of this algorithm was used in the previous publication (https://doi.org/10.1021/acs.jpcb.2c05288)
 ######################################################################################
 ### Input file (Sensor_Parameters.csv): 
