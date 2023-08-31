@@ -41,7 +41,7 @@ Version 1 of this algorithm was used in the previous publication (https://doi.or
 In this study, StELa was used on MD data of the same protein in the presence and absence of binding cofactors to help identify a ligand dependent transition in an identified local region of the protein. This version only corrected vectors for appropriate alpha helical character.
 ######################################################################################
 ### Extract the PHI/PSI backbone angles with RAMA
->gmx rama -f $NAME.xtc -s ../$TPR.tpr -o rama-$NAME.xvg
+>gmx rama -f $TRAJ.xtc -s $TPR.tpr -o rama-$NAME.xvg
 
 - Be sure to remove the header of your output .xvg file before input into StELa
 
