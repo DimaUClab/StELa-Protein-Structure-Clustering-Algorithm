@@ -47,7 +47,7 @@ In this study, StELa was used on MD data of the same protein in the presence and
 
 For a protein with 12 angles, the file is organized as Phi, Psi, Label for each residue pair for each frame
 
-####-------- Frame 1 --------
+#### -------- Frame 1 --------
 
 -130.807  175.305  GLY-2
 
@@ -73,7 +73,7 @@ For a protein with 12 angles, the file is organized as Phi, Psi, Label for each 
 
 -143.342  7.581  LEU-13
 
-####-------- Frame 2 --------
+#### -------- Frame 2 --------
 
 -115.556  168.431  GLY-2
 
@@ -99,7 +99,7 @@ For a protein with 12 angles, the file is organized as Phi, Psi, Label for each 
 
 -102.121  -3.93136  LEU-13
 
-####-------- Frame 1 --------
+#### -------- Frame 1 --------
 
 ...
 
