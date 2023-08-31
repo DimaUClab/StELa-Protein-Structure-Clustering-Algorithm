@@ -99,13 +99,15 @@ For a protein with 12 angles, the file is organized as Phi, Psi, Label for each 
 
 -102.121  -3.93136  LEU-13
 
-#### -------- Frame 1 --------
+#### -------- Frame 3 --------
 
 ...
 
 ...
 
 ...
+
+etc.
 
 ######################################################################################
 ### Input file (StELa_Input.csv): 
