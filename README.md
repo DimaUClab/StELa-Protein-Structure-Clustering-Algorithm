@@ -1,5 +1,5 @@
 # StELa-Protein-Structure-Clustering-Algorithm
-### **S**econdary S**t**ructure **E**nsembles with Machine **L**e**a**rning
+**S**econdary S**t**ructure **E**nsembles with Machine **L**e**a**rning
 
 Published by: Amanda C. Macke - Dima Group @ University of Cincinnati
 email for questions (mackeac@mail.uc.edu)
