@@ -128,16 +128,21 @@ This input file is used to organize and streamline input provided by the user co
 This output file contains a summary of the results (example shown below) of clustering including the cluster ID, the population of frames found in the cluster, the identified probable vector, and the frames identified to match the probable vector so it can be extracted from the trajectory if so desired for visualization.
 
 ---------- Cluster 4 ---------- 
+
 Population: 9.3865 
+
 Probable Vector: [4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 15.0, 15.0, 15.0, 15.0, 4.0] 
+
 Possible Frames for the Representative Structure:
+
  [1.0, 139.0, 140.0, 177.0, 189.0, 191.0, 266.0, 319.0, 368.0, 396.0, 399.0, 651.0, 655.0, 1134.0, 1137.0, 1164.0, 1217.0] 
 
-NOTE: Generally if the structures are well defined and you are using an appropriate number of clusters for the heriarchical clustering step, StELa will find a representative frame for your cluster. At times when the probable vector does not match any of the frames, an alternative representative structure will need to be provided for StELa to search for. 
+**NOTE:** Generally if the structures are well defined and you are using an appropriate number of clusters for the heriarchical clustering step, StELa will find a representative frame for your cluster. At times when the probable vector does not match any of the frames, an alternative representative structure will need to be provided for StELa to search for. 
 
 If StELa doesn't find a matching vector, she will print out an empty list:
 
 >The Following Frame Indices Match the Probable Vector:
+
 >[]
 
 This is when you would tell StELa, no I don't want to use the probable vector:
@@ -145,8 +150,13 @@ This is when you would tell StELa, no I don't want to use the probable vector:
 >Would you like to use the Most Probable Vector? (y/n): n
 
 StELa will then ask for an alternative vector:
+
 > You will need to manually type the vector you would like to check the cluster with.
+
 > The Probability Table for this Cluster can be seen in CHECKcluster-vector-...-.csv 
+
 > Enter alternative vector to check [a, b, ... ]: [4, 10, 10, 10, 10, 15, 15, 15, 15, 4, 4, 4]
+
 *Please provide the alternative vector with spaces between the integers and including the [] brackets
+
 This process will loop until a representative can be found.
