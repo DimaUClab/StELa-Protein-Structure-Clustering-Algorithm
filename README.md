@@ -16,7 +16,7 @@ by Amanda C. Macke, Jamie Rowley, Jacob E. Stump & Ruxandra I. Dima
 
 This python code was delevoped on a linux system but can be ran in any python environment provided there is an interactive terminal. In linux, the code is most easily executed from a terminal with the following command: 
 
-> python3 StELa_v1.py 
+> python3 StELa_v2.py 
 
 ######################################################################################
 
@@ -45,7 +45,7 @@ In this study, StELa was used on MD data of the same protein in the presence and
 ### Extract the PHI/PSI backbone angles with RAMA
 >gmx rama -f $TRAJ.xtc -s $TPR.tpr -o rama-$NAME.xvg
 
-- Be sure to remove the header of your output .xvg file before input into StELa
+- Be sure to remove the header of your output rama.xvg file before input into StELa
 
 For a protein with 12 angles, the file is organized as Phi, Psi, Label for each residue pair for each frame
 
@@ -118,5 +118,8 @@ This input file is used to organize and streamline input provided by the user co
    ^ Consideration may be required as to the name of your particular input file
 - Residue_IDs: a list of the labels provided in the rama.xvg file for resiude organization - an arbitrary list may be provided instead if desired
 - Total_Angles: the number of angles in your protein region (14 residues = 12 angles) - determines how StELa parses through the rama.xvg input file
+  *If unsure about how many angles, a good way to check the appropriate no. is count the labels in the input rama.xvg
 - No_Traj: number of trajectories that may be concatenated - corresponds to the number of input files StELa should be looking for
 - No_Frames: number of sampled frames - The more frames, the better.
+    *If unsure about how many frames you are using, a good way to check the appropriate no. is to divide the no. of observations in the rama.xvg file and divide by the no. of angles
+
