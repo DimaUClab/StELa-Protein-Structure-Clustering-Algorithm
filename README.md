@@ -11,7 +11,6 @@ bioRxv -
 ###################################################################################### 
 ## A Letter from StELa 
 ### Developed in the Dima Research Group 
-by Amanda C. Macke, Jamie Rowley, Jacob E. Stump & Ruxandra I. Dima
 ### University of Cincinnati  
 #### VERSION 2 - Aug. 2023
 ######################################################################################
