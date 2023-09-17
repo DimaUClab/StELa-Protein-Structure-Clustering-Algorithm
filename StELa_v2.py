@@ -86,13 +86,13 @@ def LOAD_ANGLES (PHI, PSI, LABEL, STRUCT):
 
 print('---------- Importing Data from Trajectories ----------')
 # Load Angles & Combine Alpha Helices & Loops
-PHI_H15_L, PSI_H15_L, LABEL_H15_L=[],[],[]
+MY_PHI, MY_PSI MY_LABEL=[],[],[]
 for i in range(1, NO_TRAJ+1):
-    LOAD_ANGLES (PHI_H15_L, PSI_H15_L, LABEL_H15_L, 'rama-{0}-{1}-nohead'.format(SETUP, i))
+    LOAD_ANGLES (MY_PHI, MY_PSI, MY_LABEL, 'rama-{0}-{1}-nohead'.format(SETUP, i))
 
 print('~ Angles Extracted from XVG ~')
-x=np.array(PHI_H15_L)
-y=np.array(PSI_H15_L)
+x=np.array(MY_PHI)
+y=np.array(MY_PSI)
 
 ##################################################################################################################################################
 # Combine PHI & PSI angles into the same numpy array
@@ -344,7 +344,7 @@ for frame in range(0, TRAJ_FRAMES):
     VECTOR=OG_VECTOR[:]
     
     ##### ALPHA CORRECTION & BIAS #####
-    # Need to account for the Biochemistry (For it to be a true helix, need 4 alpha bois in a row
+    # Need to account for the Biochemistry (For it to be a true helix, need 4 alpha bois in a row)
     res=0
     for index in range(0,TOTAL_ANGLES):   
         if res+2==TOTAL_ANGLES:   
