@@ -163,7 +163,7 @@ StELa will then ask for an alternative vector:
 
 *Please provide the alternative vector with spaces between the integers and including the [] brackets
 
-This process will loop until a representative can be found.
+This process will loop until a representative can be found before moving to the next cluster.
 
 
 ## Thank you for using StELa for your secondary structure needs!
