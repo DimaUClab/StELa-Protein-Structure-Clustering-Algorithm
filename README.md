@@ -144,6 +144,8 @@ StELa will ask the user how many KMeans it wants to check. Currently, this is so
 
 *Notice that in using KMeans of 5, KMeans doesn't identify the bridge region. This is not ideal, but clustering is unsupervised and therefore cannot be helped. In the algorithm, the bridge region is used as a "throw away" identifier in the event that StELa doesn't identify an alpha helix or a beta strand to be "true" according to the rules explained in the publication of an Alpha Helix is 4 helical angles in a row and a Beta Strand is 3 straight angles in a row. In order to retain some of the similar character, you can indicate the region that would have a similar PSI character.*
 
+StELa will then convert each frame from a list of representative vectors of KMeans labels. As it sorts through the vectors, it will convert "true" alpha-helical indices to 10 & "true" beta-strand indices to 15.
+
 #### Clustering the Representative Vectors with Heirarchical Clustering.
 StELa will use statistical tools to evaluate the appropriate number of clusters for your dataset with the Calinski-Harabasz or Silhouette scores (shown below). 
 
