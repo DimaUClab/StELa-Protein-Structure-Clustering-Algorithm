@@ -3,7 +3,8 @@
 # Secondary sTructural Ensembles with machine LeArning
 # For Characterizing Secondary Structure in Local Protein Regions
 
-# Last Edited: 08/31/2023
+# V2 posted: 08/31/2023
+# Last Edited: 03/01/2024 - simplify heirarchical clustering check
 ###################################################################################################
 # Python 3.9 & Anaconda (https://www.anaconda.com/)
 
@@ -563,7 +564,7 @@ DF2.to_csv('./ADJUSTED-frame-vectors-{0}-{1}n.csv'.format(STATE, N), index=False
 print('~ Adjusted Vectors are Saved to ADJUSTED.csv Files ~')
 
 ##################################################################################################################################################
-print('\n---------- Evaluating the No. of Clusters for AHC ----------')
+print('\n---------- Evaluating the No. of Clusters for AHC: Complete Linkage ----------')
 # Set the Agglomerative Heirarchical Clustering Method being used ('complete', 'average')
 # 'single' linkage method = Minimum Distance
 # 'complete' linkage method = Maximum Distance
@@ -588,17 +589,19 @@ print('~ Dendogram Plotted ~')
 
 ##################################################################################################################################################
 plt.rcParams['lines.linewidth'] = 2
+HC_CLUSTERS = 30
 # Plotting the Calinski Harabasz Score Scores
 pSF=[]
-for number_clust in range(2, 30):
+for number_clust in range(2, HC_CLUSTERS):
     cluster=AgglomerativeClustering(n_clusters=number_clust, affinity='euclidean', linkage=METHOD)
     y=cluster.fit_predict(FRAME_CLUSTERS_ADJUST)
     labels=cluster.labels_
     pSF.append(metrics.calinski_harabasz_score(FRAME_CLUSTERS_ADJUST, labels))
 
 psf_fig=plt.figure(figsize=(12,8))
-plt.plot(range(2,30), pSF, color='black', alpha=0.75)
-plt.scatter(range(2,30), pSF, s=75, color='deeppink')
+plt.plot(range(2,HC_CLUSTERS), pSF, color='black', alpha=0.75)
+plt.scatter(range(2,HC_CLUSTERS), pSF, s=75, color='deeppink')
+# Uncomment the vertical lines to add them if you need help looking at scoring
 #plt.vlines(11, np.min(pSF), np.max(pSF), colors='black', linestyles='dashed' )
 plt.xlabel('Number of Clusters', fontsize=22, fontweight='bold')
 plt.xticks(fontsize=16)
@@ -609,15 +612,16 @@ print('~ pSF Scores Plotted ~')
 
 # Plotting the Silhouette Scores 
 SIL=[]
-for number_clust in range(2,30):
+for number_clust in range(2,HC_CLUSTERS):
     cluster=AgglomerativeClustering(n_clusters=number_clust, affinity='euclidean', linkage=METHOD)
     y=cluster.fit_predict(FRAME_CLUSTERS_ADJUST)
     labels=cluster.labels_
     SIL.append(metrics.silhouette_score(FRAME_CLUSTERS_ADJUST, labels, metric='euclidean'))
 
 sil_fig=plt.figure(figsize=(12,8))
-plt.plot(range(2,30), SIL, color='black', alpha=0.75)
-plt.scatter(range(2,30), SIL, s=75, color='goldenrod')
+plt.plot(range(2,HC_CLUSTERS), SIL, color='black', alpha=0.75)
+plt.scatter(range(2,HC_CLUSTERS), SIL, s=75, color='goldenrod')
+# Uncomment the vertical lines to add them if you need help looking at scoring
 #plt.vlines(11, np.min(SIL), np.max(SIL), colors='black', linestyles='dashed' )
 plt.xlabel('Number of Clusters', fontsize=22, fontweight='bold')
 plt.xticks(fontsize=16)
