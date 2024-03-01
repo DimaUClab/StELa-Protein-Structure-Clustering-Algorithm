@@ -43,7 +43,7 @@ scipy == 1.7.1
 ### General Description Algorithm Logic: 
 This algorithm is a double clustering algorithm used to characterize local regions of proteins found to be particularly flexible in MD simulation. Similar to the **CATS** algorithm, developed by Cheung & group (https://github.com/Cheung-group/CATS), StELa uses the PHI/PSI backbone angles as a collective variable for describing each frame, extracted with the GROMACS ***rama*** function (https://manual.gromacs.org/current/onlinehelp/gmx-rama.html). StELa takes advantage of Ramachandran and centroid based clustering (KMeans) to create representative vectors for each frame with the centroid labels. These vectors are checked for biochemistry geometry rules such as an alpha helix must include 4 helical residues in a row and a beta strand must include at least 3 straight residues in a row. The representative vectors are then clustered with complete linkage heriarchical clustering. For this step, StELa provides the heirarchical dendrogram, the Calinski-Harabasz score plot and the Silhouette score plot to assist in identifying an appropriate number of clusters (types of structures). Representative structures are then determined based on a calculated probability table and a search for the most probable vector. The resulting information as well as the associated frame, and cluster population are then provided in the **StELa_Clusters.txt** output file.
 
-StELa will prompt the user to provide information relating to the results of each step as she goes such as whether or not you want to plot the ramachandran plot, the number of desired centroids to check, etc. Details about the various steps and how the algorithm runs can be found in the accompanying article (bioRxv).
+StELa will prompt the user to provide information relating to the results of each step as she goes such as whether or not you want to plot the ramachandran plot, the number of desired centroids to check, etc. Details about the various steps and how the algorithm runs can be found in the accompanying article.
 
 Version 1 of this algorithm was described and used in the previous publication (https://doi.org/10.1021/acs.jpcb.2c05288)
 
@@ -129,6 +129,14 @@ This input file is used to organize and streamline input provided by the user co
 - No_Traj: number of trajectories that may be concatenated - corresponds to the number of input files StELa should be looking for
 - No_Frames: number of sampled frames - The more frames, the better.
     *If unsure about how many frames you are using, a good way to check the appropriate no. is to divide the no. of observations in the rama.xvg file and divide by the no. of angles
+  
+######################################################################################
+### User Decisions
+StELa will ask the user how many KMeans it wants to check. Currently, this is somewhat of a guess and check step as the appropriate number of KMeans labels is dependent on how it separates the ramachandran plot. Ideally, KMeans will identify the Alpha, Beta and Bridge regions as unique regions; however, KMeans is dependent on the distrubution of the data points. This is usually accomplished with a KM of 7. If this splits your regions inappropriately, simply kill the code and execute it with fewer KMeans labels. Remember, the more regions, the more detail; however if you split your secondary structure regions, StELa cannot correctly check the characterization of alpha-helices and beta-strands. For StELa to work as intended, the Alpha and Beta regions have to be identified as unique. In the example provided below, the alpha region is split into two regions with a KMeans of 7, so a KMeans of 5 was chosen as it was the maximum number of clusters without splitting these important regions.
+
+![plot](./Doc_Figures/Choosing_KMeans.png)
+
+Notice that in using KMeans of 5, KMeans doesn't identify the bridge region. This is not ideal, but clustering is unsupervised and therefore cannot be helped. In the algorithm, the bridge region is used as a "throw away" identifier in the event that StELa doesn't identify an alpha helix or a beta strand to be "true" according to the rules explained in the publication of an Alpha Helix is 4 helical angles in a row and a Beta Strand is 3 straight angles in a row.
 
 ######################################################################################
 ### Output file (StELa_Clusters.txt): 
