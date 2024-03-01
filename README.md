@@ -128,7 +128,7 @@ This input file is used to organize and streamline input provided by the user co
 - Residue_IDs: a list of the labels provided in the rama.xvg file for resiude organization - an arbitrary list may be provided instead if desired
 - Total_Angles: the number of angles in your protein region (14 residues = 12 angles) - determines how StELa parses through the rama.xvg input file
 
-   *If unsure about how many angles, a good way to check the appropriate no. is count the labels in the input rama.xvg
+   *If unsure about how many angles, a good way to check the appropriate no. is count the labels in the input rama.xvg*
   
 - No_Traj: number of trajectories that may be concatenated - corresponds to the number of input files StELa should be looking for
 - No_Frames: number of sampled frames - The more frames, the better.
