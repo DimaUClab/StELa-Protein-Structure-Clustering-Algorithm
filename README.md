@@ -8,7 +8,7 @@ Authored by: Amanda C. Macke, Jacob E. Stump, Maria S. Kelly, Jamie Rowley, Vage
 
 published in JCIM: https://doi.org/10.1021/acs.jcim.3c01511
 
-Input Files can be found at the following repository: https://github.com/DimaUClab/StELa_Input_Files.git
+*Input Files can be found at the following repository: https://github.com/DimaUClab/StELa_Input_Files.git*
 
 
 ###################################################################################### 
@@ -16,6 +16,8 @@ Input Files can be found at the following repository: https://github.com/DimaUCl
 ### Developed in the Dima Research Group 
 ### University of Cincinnati  
 #### VERSION 2 - Aug. 2023
+#### Recent Updates
+> 03/01/2024: simplified ability to change No. of AHC clusters to check
 ######################################################################################
 
 
@@ -121,7 +123,7 @@ etc.
 ######################################################################################
 ### Input file (StELa_Input.csv): 
 This input file is used to organize and streamline input provided by the user concerning the individual protein region of interest.
-- System_Name: used to name some of the files - in our instance, the input file (indicated in line XXX)
+- System_Name: used to name some of the files - in our instance, the input file (indicated in line 91)
   - Consideration may be required as to the name of your particular input file
 - Residue_IDs: a list of the labels provided in the rama.xvg file for resiude organization - an arbitrary list may be provided instead if desired
 - Total_Angles: the number of angles in your protein region (14 residues = 12 angles) - determines how StELa parses through the rama.xvg input file
@@ -132,11 +134,19 @@ This input file is used to organize and streamline input provided by the user co
   
 ######################################################################################
 ### User Decisions
+#### Clustering the Ramachandran Plot with Centroid-based Clustering (KMeans).
 StELa will ask the user how many KMeans it wants to check. Currently, this is somewhat of a guess and check step as the appropriate number of KMeans labels is dependent on how it separates the ramachandran plot. Ideally, KMeans will identify the Alpha, Beta and Bridge regions as unique regions; however, KMeans is dependent on the distrubution of the data points. This is usually accomplished with a KM of 7. If this splits your regions inappropriately, simply kill the code and execute it with fewer KMeans labels. Remember, the more regions, the more detail; however if you split your secondary structure regions, StELa cannot correctly check the characterization of alpha-helices and beta-strands. For StELa to work as intended, the Alpha and Beta regions have to be identified as unique. In the example provided below, the alpha region is split into two regions with a KMeans of 7, so a KMeans of 5 was chosen as it was the maximum number of clusters without splitting these important regions.
 
 ![plot](./Doc_Figures/Choosing_KMeans.png)
 
-Notice that in using KMeans of 5, KMeans doesn't identify the bridge region. This is not ideal, but clustering is unsupervised and therefore cannot be helped. In the algorithm, the bridge region is used as a "throw away" identifier in the event that StELa doesn't identify an alpha helix or a beta strand to be "true" according to the rules explained in the publication of an Alpha Helix is 4 helical angles in a row and a Beta Strand is 3 straight angles in a row.
+*Notice that in using KMeans of 5, KMeans doesn't identify the bridge region. This is not ideal, but clustering is unsupervised and therefore cannot be helped. In the algorithm, the bridge region is used as a "throw away" identifier in the event that StELa doesn't identify an alpha helix or a beta strand to be "true" according to the rules explained in the publication of an Alpha Helix is 4 helical angles in a row and a Beta Strand is 3 straight angles in a row. In order to retain some of the similar character, you can indicate the region that would have a similar PSI character.*
+
+#### Clustering the Representative Vectors with Heirarchical Clustering.
+StELa will use statistical tools to evaluate the appropriate number of clusters for your dataset with the Calinski-Harabasz or Silhouette scores (shown below). 
+
+![plot](./Doc_Figures/heirarchical_scoring.png)
+
+*For this dataset, 21 clusters was used as the scoring methods identified a local maximum in common. You can also look at the dendrogram to help see the breakdown of your heirarchy. Larger number of clusters (>30) can be checked by changing the numbers indicated in the scoring sections of the code (line 592). Keep in mind that the goal is to group similar structures so large numbers of clusters might not be optimal for your system. R2/Tau fragments (IDP) were found to prefer ~20 clusters. HBD tip fragments (from globular protein) were found to prefer ~10 clusters.*
 
 ######################################################################################
 ### Output file (StELa_Clusters.txt): 
