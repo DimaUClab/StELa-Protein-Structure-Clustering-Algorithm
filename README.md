@@ -195,3 +195,5 @@ This process will loop until a representative can be found before moving to the 
 ## Thank you for using StELa for your secondary structure needs!
 ## With Love,
 ## StELa
+
+PS. If you are interested in looking at your system in PC space, please go to the following repository to see how we represented the FEL in the accompanying publication (https://github.com/amacke718/PC-based-FEL.git)
